@@ -1,4 +1,4 @@
-from src.pipeline.config.common import default_timestamp_str, EnvSetup
+from src.__main__.config.common import default_timestamp_str, EnvSetup
 
 
 class BeamConfig:

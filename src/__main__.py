@@ -1,9 +1,9 @@
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
-from src.pipeline.config.common import default_timestamp_formated
-from src.pipeline.config.beam_config import BeamConfig
-from src.pipeline.config.common import EnvSetup, Constants
+from src.__main__.config.common import default_timestamp_formated
+from src.__main__.config.beam_config import BeamConfig
+from src.__main__.config.common import EnvSetup, Constants
 
 
 def set_key(element):
