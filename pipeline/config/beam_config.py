@@ -12,7 +12,7 @@ class BeamConfig:
                 "project": "ivanildobarauna",
                 "region": "us-central1",
                 "temp_location": "gs://gcp-streaming-pipeline-dataflow/dataflow/temp",
-                "staging_location": "gs://gcp-streaming-pipeline-dataflow/temp",
+                "staging_location": "gs://gcp-streaming-pipeline-dataflow/staging",
                 "min_workers": 1,
                 "num_workers": 1,
                 "max_num_workers": 2,

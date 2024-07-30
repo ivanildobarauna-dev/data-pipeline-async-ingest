@@ -7,11 +7,12 @@ certifi==2024.7.4
 charset-normalizer==3.3.2
 cloudpickle==2.2.1
 crcmod==1.7
--e git+ssh://git@me.github.com/IvanildoBarauna/data-consumer-pipeline.git@e17af507e2664f90297b2448b79b943ce0a60b2a#egg=data_consumer_pipeline
+-e git+ssh://git@me.github.com/IvanildoBarauna/data-consumer-pipeline.git@692981c0778a968bba50b6e0c9043d398272c1b5#egg=data_consumer_pipeline
 dill==0.3.1.1
 dnspython==2.6.1
 docopt==0.6.2
 docstring_parser==0.16
+exceptiongroup==1.2.2
 fastavro==1.9.5
 fasteners==0.19
 google-api-core==2.19.1
@@ -44,6 +45,7 @@ grpcio-status==1.62.2
 hdfs==2.7.3
 httplib2==0.22.0
 idna==3.7
+iniconfig==2.0.0
 Js2Py==0.74
 jsonpickle==3.2.2
 jsonschema==4.23.0
@@ -54,6 +56,7 @@ objsize==0.7.0
 orjson==3.10.6
 overrides==7.7.0
 packaging==24.1
+pluggy==1.5.0
 proto-plus==1.24.0
 protobuf==4.25.4
 pyarrow==16.1.0
@@ -66,6 +69,7 @@ pydot==1.4.2
 pyjsparser==2.7.1
 pymongo==4.8.0
 pyparsing==3.1.2
+pytest==8.3.2
 python-dateutil==2.9.0.post0
 pytz==2024.1
 redis==5.0.7
@@ -77,6 +81,7 @@ rsa==4.9
 shapely==2.0.5
 six==1.16.0
 sqlparse==0.5.1
+tomli==2.0.1
 typing_extensions==4.12.2
 tzlocal==5.2
 urllib3==2.2.2
