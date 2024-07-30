@@ -10,7 +10,7 @@ class BeamConfig:
             return {
                 "runner": "DataflowRunner",
                 "project": "ivanildobarauna",
-                "region": "us-central1",
+                "region": "us-east1",
                 "temp_location": "gs://gcp-streaming-pipeline-dataflow/dataflow/temp",
                 "staging_location": "gs://gcp-streaming-pipeline-dataflow/staging",
                 "min_workers": 1,
