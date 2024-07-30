@@ -19,7 +19,7 @@ class BeamConfig:
                 "autoscaling_algorithm": "THROUGHPUT_BASED",
                 "save_main_session": True,
                 "machine_type": "n1-standard-1",
-                "job_name": f"data-consumer-pipeline-prod",
+                "job_name": f"data-consumer-pipeline-prod{default_timestamp_str()}",
                 "disk_size_gb": "10",
                 "streaming": True,
             }
