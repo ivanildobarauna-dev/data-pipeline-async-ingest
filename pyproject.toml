@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "data-consumer-pipeline"
+version = "1.0.0"
+description = "Data pipeline using Dataflow"
+authors = ["Ivanildo Barauna de Souza Junior <ivanildo.jnr@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+packages= [
+    { include = "pipeline", from = "." }
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+apache-beam = {extras = ["gcp"], version = "^2.57.0"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
