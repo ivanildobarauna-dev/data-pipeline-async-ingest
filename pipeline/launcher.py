@@ -51,16 +51,18 @@ def run():
         decoded_messages = messages | "Decode" >> beam.Map(lambda x: x.decode("utf-8"))
         keyed_messages = decoded_messages | "CreateKey" >> beam.Map(set_key)
         windowed_messages = keyed_messages | "Window" >> beam.WindowInto(
-            beam.window.FixedWindows(5)
+            beam.window.FixedWindows(60)
         )
         grouped_messages = windowed_messages | "GroupbyMessage" >> beam.GroupByKey()
         extracted_messages = grouped_messages | "ExtractMessage" >> beam.Map(
             lambda x: x[1]
         )
         parse_json = extracted_messages | "ParseToJson" >> beam.Map(transform_data)
+        # parse_json | "Print" >> beam.Map(log_fn)
         flatter = parse_json | "Flatten" >> beam.FlatMap(lambda x: x)
         flatter | "WriteToBigQuery" >> beam.io.WriteToBigQuery(
-            table="ivanildobarauna.STG.api_data",
+            table="STG.api_data",
             schema=bigquery_schema(),
             write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
+            method="STREAMING_INSERTS",
         )
