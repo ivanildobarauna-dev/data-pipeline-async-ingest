@@ -11,10 +11,7 @@ packages= [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-apache-beam = {extras = ["gcp"], version = "^2.57.0"}
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.3.2"
+apache-beam = {extras = ["gcp"], version = "2.57.0"}
 
 [build-system]
 requires = ["poetry-core"]

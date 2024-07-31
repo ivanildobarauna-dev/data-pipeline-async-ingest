@@ -51,7 +51,7 @@ def run():
         decoded_messages = messages | "Decode" >> beam.Map(lambda x: x.decode("utf-8"))
         keyed_messages = decoded_messages | "CreateKey" >> beam.Map(set_key)
         windowed_messages = keyed_messages | "Window" >> beam.WindowInto(
-            beam.window.FixedWindows(60)
+            beam.window.FixedWindows(5)
         )
         grouped_messages = windowed_messages | "GroupbyMessage" >> beam.GroupByKey()
         extracted_messages = grouped_messages | "ExtractMessage" >> beam.Map(
