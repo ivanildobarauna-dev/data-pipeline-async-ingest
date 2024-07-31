@@ -17,5 +17,3 @@ RUN pip install lxml
 RUN apt-get update \
   && apt-get dist-upgrade \
   && apt-get install -y --no-install-recommends ffmpeg
-
-CMD ["python", "main.py", "--setup_file", "setup.py"]
