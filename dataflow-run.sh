@@ -4,4 +4,4 @@ python main.py --project ivanildobarauna \
 --setup_file ./setup.py \
 --staging_location gs://gcp-streaming-pipeline-dataflow/staging \
 --temp_location gs://gcp-streaming-pipeline-dataflow/temp \
---save_main_session &
+--save_main_session
