@@ -28,7 +28,7 @@ google-cloud-datastore==2.19.0
 google-cloud-dlp==3.18.1
 google-cloud-language==2.13.4
 google-cloud-pubsub==2.23.0
-google-cloud-pubsublite==1.11.0
+google-cloud-pubsublite==1.11.1
 google-cloud-recommendations-ai==0.10.11
 google-cloud-resource-manager==1.12.4
 google-cloud-spanner==3.47.0
