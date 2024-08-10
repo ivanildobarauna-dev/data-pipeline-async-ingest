@@ -1,20 +1,30 @@
 import apache_beam as beam
-from pipeline.config.common import Constants
-from pipeline.config.bigquery.table_registry import STG
-from pipeline.config.options import get_options
+from pipeline.config.beam_config import get_options
+from pipeline.config.gcp.constants import PUBSUB_SUBSCRIPTION
+from pipeline.utils.send_metrics import MetricsClient
+from pipeline.config.app.constants import APPLICATION_NAME
 from pipeline.transform.generic_transforms import set_key, set_datetime
+from pipeline.config.gcp.bigquery.table_registry import STG
+
+
+metrics_client = MetricsClient()
+
+
+def increment_metric(element):
+    metrics_client.incr(metric_name=f"{APPLICATION_NAME}.extracted", value=1)
+    return element
 
 
 def run():
     with beam.Pipeline(options=get_options()) as p:
         (
             p
-            | "ReadFromPubSub"
-            >> beam.io.ReadFromPubSub(subscription=Constants.PUBSUB_SUBSCRIPTION)
+            | "ReadTopic" >> beam.io.ReadFromPubSub(subscription=PUBSUB_SUBSCRIPTION)
+            | "ExtractMetric" >> beam.Map(lambda x: increment_metric(x))
             | "Decode" >> beam.Map(lambda x: x.decode("utf-8"))
             | "CreateKey" >> beam.Map(set_key, "created_at", 8)
             | "Window" >> beam.WindowInto(beam.window.FixedWindows(5))
-            | "GroupbyMessage" >> beam.GroupByKey()
+            | "GroupMessage" >> beam.GroupByKey()
             | "ExtractMessage" >> beam.Map(lambda x: x[1])
             | "ParseToJson" >> beam.Map(set_datetime, "ARRIVAL_DATE", "data")
             | "Flatten" >> beam.FlatMap(lambda x: x)
