@@ -1,19 +1,20 @@
-FROM apache/beam_python3.10_sdk:2.57.0
+FROM apache/beam_python3.9_sdk:2.57.0
 
-COPY . .
+WORKDIR /app
 
+# Update pip and install poetry
+RUN pip install --upgrade pip \
+    && pip install poetry
 
-ENV RUN_PYTHON_SDK_IN_DEFAULT_ENVIRONMENT=1
+# Copy application for container
+COPY pipeline ./pipeline
+COPY pyproject.toml .
+COPY poetry.lock .
 
-RUN pip install --upgrade pip
+# Instale as dependências usando Poetry
+RUN poetry config virtualenvs.create false
 
-# Pre-install Python dependencies. For reproducibile builds,
-# supply all of the dependencies and their versions in a requirements.txt file.
-RUN pip install -r requirements.txt
+RUN poetry install
 
-# You can also install individual dependencies.
-RUN pip install lxml
-# Pre-install other dependencies.
-RUN apt-get update \
-  && apt-get dist-upgrade \
-  && apt-get install -y --no-install-recommends ffmpeg
+# [DEBUG] Set the entrypoint to /bin/bash
+#ENTRYPOINT ["/bin/bash"]

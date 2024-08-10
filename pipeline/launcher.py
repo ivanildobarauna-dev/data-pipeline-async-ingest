@@ -1,68 +1,38 @@
-import logging
-import json
-
 import apache_beam as beam
-from apache_beam.options.pipeline_options import PipelineOptions
-
-from pipeline.config.common import (
-    default_timestamp_formated,
-    Constants,
-    default_timestamp_str,
-)
-
-from datetime import datetime
+from pipeline.config.beam_config import get_options
+from pipeline.config.gcp.constants import PUBSUB_SUBSCRIPTION
+from pipeline.utils.send_metrics import MetricsClient
+from pipeline.config.app.constants import APPLICATION_NAME
+from pipeline.transform.generic_transforms import set_key, set_datetime
+from pipeline.config.gcp.bigquery.table_registry import STG
 
 
-def set_key(element):
-    key = eval(element)["created_at"]
-    return str(key)[:8], element
+metrics_client = MetricsClient()
 
 
-def log_fn(element):
-    logging.info(element)
+def increment_metric(element):
+    metrics_client.incr(metric_name=f"{APPLICATION_NAME}.extracted", value=1)
     return element
 
 
-def transform_data(element):
-    new_list = []
-    for item in element:
-        dic = {}
-        dic["ARRIVAL_DATE"] = datetime.now()
-        dic["data"] = item
-        new_list.append(dic)
-
-    return new_list
-
-
-def bigquery_schema():
-    table_schema = "ARRIVAL_DATE:DATETIME, data:STRING"
-    return table_schema
-
-
 def run():
-    pipeline_options = PipelineOptions(
-        job_name=f"data-consumer-pipeline-{default_timestamp_str()}"
-    )
-
-    with beam.Pipeline(options=pipeline_options) as p:
-        messages = p | "ReadFromPubSub" >> beam.io.ReadFromPubSub(
-            subscription=Constants.PUBSUB_SUBSCRIPTION
-        )
-        decoded_messages = messages | "Decode" >> beam.Map(lambda x: x.decode("utf-8"))
-        keyed_messages = decoded_messages | "CreateKey" >> beam.Map(set_key)
-        windowed_messages = keyed_messages | "Window" >> beam.WindowInto(
-            beam.window.FixedWindows(60)
-        )
-        grouped_messages = windowed_messages | "GroupbyMessage" >> beam.GroupByKey()
-        extracted_messages = grouped_messages | "ExtractMessage" >> beam.Map(
-            lambda x: x[1]
-        )
-        parse_json = extracted_messages | "ParseToJson" >> beam.Map(transform_data)
-        # parse_json | "Print" >> beam.Map(log_fn)
-        flatter = parse_json | "Flatten" >> beam.FlatMap(lambda x: x)
-        flatter | "WriteToBigQuery" >> beam.io.WriteToBigQuery(
-            table="STG.api_data",
-            schema=bigquery_schema(),
-            write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
-            method="STREAMING_INSERTS",
+    with beam.Pipeline(options=get_options()) as p:
+        (
+            p
+            | "ReadTopic" >> beam.io.ReadFromPubSub(subscription=PUBSUB_SUBSCRIPTION)
+            | "ExtractMetric" >> beam.Map(lambda x: increment_metric(x))
+            | "Decode" >> beam.Map(lambda x: x.decode("utf-8"))
+            | "CreateKey" >> beam.Map(set_key, "created_at", 8)
+            | "Window" >> beam.WindowInto(beam.window.FixedWindows(5))
+            | "GroupMessage" >> beam.GroupByKey()
+            | "ExtractMessage" >> beam.Map(lambda x: x[1])
+            | "ParseToJson" >> beam.Map(set_datetime, "ARRIVAL_DATE", "data")
+            | "Flatten" >> beam.FlatMap(lambda x: x)
+            | "WriteToBigQuery"
+            >> beam.io.WriteToBigQuery(
+                table=STG.api_data.get_table_name(),
+                schema=STG.api_data.schema(),
+                write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
+                method="STREAMING_INSERTS",
+            )
         )
