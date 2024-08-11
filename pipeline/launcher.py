@@ -10,8 +10,8 @@ from pipeline.config.gcp.bigquery.table_registry import STG
 metrics_client = MetricsClient()
 
 
-def increment_metric(element):
-    metrics_client.incr(metric_name=f"{APPLICATION_NAME}.extracted", value=1)
+def increment_metric(element, metric_name: str):
+    metrics_client.incr(metric_name=f"{APPLICATION_NAME}.{metric_name}", value=1)
     return element
 
 
@@ -20,7 +20,7 @@ def run():
         (
             p
             | "ReadTopic" >> beam.io.ReadFromPubSub(subscription=PUBSUB_SUBSCRIPTION)
-            | "ExtractMetric" >> beam.Map(lambda x: increment_metric(x))
+            | "ExtractMetric" >> beam.Map(lambda x: increment_metric(x, "extracted"))
             | "Decode" >> beam.Map(lambda x: x.decode("utf-8"))
             | "CreateKey" >> beam.Map(set_key, "created_at", 8)
             | "Window" >> beam.WindowInto(beam.window.FixedWindows(5))
