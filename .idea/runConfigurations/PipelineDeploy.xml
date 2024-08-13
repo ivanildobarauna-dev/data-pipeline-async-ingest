@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PipelineDeploy" type="CompoundRunConfigurationType">
+    <toRun name="Build" type="docker-deploy" />
+    <toRun name="PipelineDeployment" type="ShConfigurationType" />
+    <toRun name="Push" type="ShConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
