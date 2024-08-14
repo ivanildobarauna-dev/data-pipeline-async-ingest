@@ -1,6 +1,8 @@
-FROM apache/beam_python3.9_sdk:2.57.0
+FROM apache/beam_python3.10_sdk:2.57.0
 
 WORKDIR /app
+
+ENV env=production
 
 # Update pip and install poetry
 RUN pip install --upgrade pip \

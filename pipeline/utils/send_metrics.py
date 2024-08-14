@@ -2,6 +2,7 @@ from datadog import initialize, statsd
 from pipeline.utils.instance_validator import Singleton
 from pipeline.config.gcp.constants import PROJECT_ID, DD_AGENT_SERVER_SECRET_ID
 from google.cloud import secretmanager
+import os
 
 
 class DataDogClient:
@@ -27,5 +28,9 @@ class MetricsClient(Singleton):
             DataDogClient()
             self.initialized = True
 
-    def incr(self, metric_name: str, value: int):
-        statsd.increment(metric=metric_name, value=value)
+    def incr(self, metric_name: str, action: str, value: int):
+        statsd.increment(
+            metric=metric_name,
+            value=value,
+            tags=["action:" + action, "env:" + os.getenv("env")],
+        )
