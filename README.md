@@ -1,32 +1,28 @@
 ## Data Consumer Pipeline: Data Pipeline for ingest data in near real time
+
 ![Project Status](https://img.shields.io/badge/status-development-yellow?style=for-the-badge&logo=github)
 ![Python Version](https://img.shields.io/badge/python-3.9-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=mit)
 
-
 ![Black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge&logo=python)
 ![pylint](https://img.shields.io/badge/pylint-10.00-green?style=for-the-badge&logo=python)
 
-[//]: # ([![CI-CD]&#40;https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/data-consumer-pipeline/CI-CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=Tests&#41;]&#40;https://github.com/IvanildoBarauna/data-consumer-pipeline/actions/workflows/CI-CD.yml&#41;)
+[//]: # "[![CI-CD](https://img.shields.io/github/actions/workflow/status/ivdatahub/data-consumer-pipeline/CI-CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=Tests)](https://github.com/data-consumer-pipeline/data-consumer-pipeline/actions/workflows/CI-CD.yml)"
+[//]: # "[![IMAGE-DEPLOY](https://img.shields.io/github/actions/workflow/status/data-consumer-pipeline/data-consumer-pipeline/deploy-image.yml?&style=for-the-badge&logo=github&cacheSeconds=60&label=Registry)](https://github.com/data-consumer-pipeline/data-consumer-pipeline/actions/workflows/deploy-cloud-run.yaml)"
+[//]: # "[![GCP-DEPLOY](https://img.shields.io/github/actions/workflow/status/data-consumer-pipeline/data-consumer-pipeline/deploy-cloud-run.yaml?&style=for-the-badge&logo=google&cacheSeconds=60&label=Deploy)](https://github.com/data-consumer-pipeline/data-consumer-pipeline/actions/workflows/deploy-cloud-run.yaml)"
 
-[//]: # ([![IMAGE-DEPLOY]&#40;https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/data-consumer-pipeline/deploy-image.yml?&style=for-the-badge&logo=github&cacheSeconds=60&label=Registry&#41;]&#40;https://github.com/IvanildoBarauna/data-consumer-pipeline/actions/workflows/deploy-cloud-run.yaml&#41;)
-
-[//]: # ([![GCP-DEPLOY]&#40;https://img.shields.io/github/actions/workflow/status/IvanildoBarauna/data-consumer-pipeline/deploy-cloud-run.yaml?&style=for-the-badge&logo=google&cacheSeconds=60&label=Deploy&#41;]&#40;https://github.com/IvanildoBarauna/data-consumer-pipeline/actions/workflows/deploy-cloud-run.yaml&#41;)
-
-
-[![Codecov](https://img.shields.io/codecov/c/github/IvanildoBarauna/data-consumer-pipeline?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/IvanildoBarauna/data-consumer-pipeline)
+[![Codecov](https://img.shields.io/codecov/c/github/data-consumer-pipeline/data-consumer-pipeline?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/data-consumer-pipeline/data-consumer-pipeline)
 
 ## Project Summary
 
 Pipeline for processing and consuming streaming data from Pub/Sub, integrating with Dataflow for real-time data processing
-
-
 
 ## Development Stack
 
 [![My Skills](https://skillicons.dev/icons?i=pycharm,python,github,gcp&perline=7)](https://skillicons.dev)
 
 ## Cloud Stack (GCP)
+
 <img src="docs/icons/pubsub.png" Alt="Pub/Sub" width="50" height="50"><img src="docs/icons/dataflow.png" Alt="Dataflow" width="50" height="50"><img src="docs/icons/bigquery.png" Alt="BigQuery" width="50" height="50">
 
 - Pub/Sub: Messaging service provided by GCP for sending and receiving messages between FastAPI and Dataflow pipeline.
@@ -34,16 +30,15 @@ Pipeline for processing and consuming streaming data from Pub/Sub, integrating w
 - BigQuery: Fully managed, serverless data warehouse provided by GCP for storing and analyzing large datasets.
 
 ## Continuous Integration and Continuous Deployment (CI/CD, DevOps)
+
 ![My Skills](https://skillicons.dev/icons?i=githubactions)
-
-
 
 ## Contributing
 
 See the following docs:
 
-- [Contributing Guide](https://github.com/IvanildoBarauna/data-consumer-pipeline/blob/main/CONTRIBUTING.md)
-- [Code Of Conduct](https://github.com/IvanildoBarauna/data-consumer-pipeline/blob/main/CODE_OF_CONDUCT.md)
+- [Contributing Guide](https://github.com/ivdatahub/data-consumer-pipeline/blob/main/CONTRIBUTING.md)
+- [Code Of Conduct](https://github.com/ivdatahub/data-consumer-pipeline/blob/main/CODE_OF_CONDUCT.md)
 
 ## Project Highlights:
 
@@ -58,7 +53,6 @@ See the following docs:
 - Code Quality: Use of code quality tools such as linters and formatters to ensure that the codebase is clean, consistent and easy to read.
 
 - Documentation: Creation of detailed documentation to facilitate the understanding and use of the application, including installation instructions, usage examples and troubleshooting guides.
-
 
 # Data Pipeline Process:
 
