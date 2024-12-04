@@ -11,9 +11,9 @@ packages= [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-apache-beam = {extras = ["gcp"], version = "2.61.0"}
-google-cloud-secret-manager = "^2.20.2"
-datadog = "^0.50.2"
+apache-beam = {extras = ["gcp"], version = "2.60.0"}
+google-cloud-secret-manager = "^2.21.1"
+datadog = "^0.50.1"
 
 [build-system]
 requires = ["poetry-core"]
