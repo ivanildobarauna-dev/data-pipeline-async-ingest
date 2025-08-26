@@ -1,5 +1,9 @@
 ## Data Consumer Pipeline: Data Pipeline for ingest data in near real time
 
+Pipeline for processing and consuming streaming data from Pub/Sub, integrating with Dataflow for real-time data processing
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ivanildobarauna-dev/data-pipeline-async-ingest)
+
 ![Project Status](https://img.shields.io/badge/status-development-yellow?style=for-the-badge&logo=github)
 ![Python Version](https://img.shields.io/badge/python-3.9-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=mit)
