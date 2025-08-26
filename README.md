@@ -7,11 +7,11 @@
 ![Black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge&logo=python)
 ![pylint](https://img.shields.io/badge/pylint-10.00-green?style=for-the-badge&logo=python)
 
-[//]: # "[![CI-CD](https://img.shields.io/github/actions/workflow/status/ivdatahub/data-consumer-pipeline/CI-CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=Tests)](https://github.com/data-consumer-pipeline/data-consumer-pipeline/actions/workflows/CI-CD.yml)"
-[//]: # "[![IMAGE-DEPLOY](https://img.shields.io/github/actions/workflow/status/data-consumer-pipeline/data-consumer-pipeline/deploy-image.yml?&style=for-the-badge&logo=github&cacheSeconds=60&label=Registry)](https://github.com/data-consumer-pipeline/data-consumer-pipeline/actions/workflows/deploy-cloud-run.yaml)"
-[//]: # "[![GCP-DEPLOY](https://img.shields.io/github/actions/workflow/status/data-consumer-pipeline/data-consumer-pipeline/deploy-cloud-run.yaml?&style=for-the-badge&logo=google&cacheSeconds=60&label=Deploy)](https://github.com/data-consumer-pipeline/data-consumer-pipeline/actions/workflows/deploy-cloud-run.yaml)"
+[//]: # "[![CI-CD](https://img.shields.io/github/actions/workflow/status/ivanildobarauna-dev/data-pipeline-async-ingest/CI-CD.yaml?&style=for-the-badge&logo=githubactions&cacheSeconds=60&label=Tests)](https://github.com/data-pipeline-async-ingest/data-pipeline-async-ingest/actions/workflows/CI-CD.yml)"
+[//]: # "[![IMAGE-DEPLOY](https://img.shields.io/github/actions/workflow/status/data-pipeline-async-ingest/data-pipeline-async-ingest/deploy-image.yml?&style=for-the-badge&logo=github&cacheSeconds=60&label=Registry)](https://github.com/data-pipeline-async-ingest/data-pipeline-async-ingest/actions/workflows/deploy-cloud-run.yaml)"
+[//]: # "[![GCP-DEPLOY](https://img.shields.io/github/actions/workflow/status/data-pipeline-async-ingest/data-pipeline-async-ingest/deploy-cloud-run.yaml?&style=for-the-badge&logo=google&cacheSeconds=60&label=Deploy)](https://github.com/data-pipeline-async-ingest/data-pipeline-async-ingest/actions/workflows/deploy-cloud-run.yaml)"
 
-[![Codecov](https://img.shields.io/codecov/c/github/data-consumer-pipeline/data-consumer-pipeline?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/data-consumer-pipeline/data-consumer-pipeline)
+[![Codecov](https://img.shields.io/codecov/c/github/data-pipeline-async-ingest/data-pipeline-async-ingest?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/ivanildobarauna-dev/data-pipeline-async-ingest)
 
 ## Project Summary
 
@@ -37,8 +37,8 @@ Pipeline for processing and consuming streaming data from Pub/Sub, integrating w
 
 See the following docs:
 
-- [Contributing Guide](https://github.com/ivdatahub/data-consumer-pipeline/blob/main/CONTRIBUTING.md)
-- [Code Of Conduct](https://github.com/ivdatahub/data-consumer-pipeline/blob/main/CODE_OF_CONDUCT.md)
+- [Contributing Guide](https://github.com/ivanildobarauna-dev/data-pipeline-async-ingest/blob/main/CONTRIBUTING.md)
+- [Code Of Conduct](https://github.com/ivanildobarauna-dev/data-pipeline-async-ingest/blob/main/CODE_OF_CONDUCT.md)
 
 ## Project Highlights:
 
