@@ -15,8 +15,6 @@ Pipeline for processing and consuming streaming data from Pub/Sub, integrating w
 [//]: # "[![IMAGE-DEPLOY](https://img.shields.io/github/actions/workflow/status/data-pipeline-async-ingest/data-pipeline-async-ingest/deploy-image.yml?&style=for-the-badge&logo=github&cacheSeconds=60&label=Registry)](https://github.com/data-pipeline-async-ingest/data-pipeline-async-ingest/actions/workflows/deploy-cloud-run.yaml)"
 [//]: # "[![GCP-DEPLOY](https://img.shields.io/github/actions/workflow/status/data-pipeline-async-ingest/data-pipeline-async-ingest/deploy-cloud-run.yaml?&style=for-the-badge&logo=google&cacheSeconds=60&label=Deploy)](https://github.com/data-pipeline-async-ingest/data-pipeline-async-ingest/actions/workflows/deploy-cloud-run.yaml)"
 
-[![Codecov](https://img.shields.io/codecov/c/github/data-pipeline-async-ingest/data-pipeline-async-ingest?style=for-the-badge&logo=codecov)](https://app.codecov.io/gh/ivanildobarauna-dev/data-pipeline-async-ingest)
-
 ## Project Summary
 
 Pipeline for processing and consuming streaming data from Pub/Sub, integrating with Dataflow for real-time data processing
